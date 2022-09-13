@@ -1,18 +1,20 @@
-from modulo_funcao import soma, media, multiplicacao, divisao, subtracao #Chamdando De modulo_a eu quero importar a função soma
+from modulo_funcao import soma, media, multiplicacao, divisao, subtracao 
 
 
 nome = input('Escreva seu nome no terminal: ')
+a = int(input('Digite o primeiro numero: '))
+b = int(input('Digite o segundo numero: '))
 
 
-print(nome +' O resultado da SOMA é: ',soma(4,6))
+print(nome +' O resultado da SOMA é: ',soma(a,b))
 
-print(nome +' O resultado da SUBTRAÇÃO é: ',subtracao(4,6))
+print(nome +' O resultado da SUBTRAÇÃO é: ',subtracao(a,b))
 
-print(nome +' O resultado da DIVISÃO é: ',divisao(4,6))
+print(nome +' O resultado da DIVISÃO é: ',divisao(a,b))
 
-print(nome +' O resultado da MULTIPLICAÇÃO é: ',multiplicacao(4,6))
+print(nome +' O resultado da MULTIPLICAÇÃO é: ',multiplicacao(a,b))
 
-print(nome +' O resultado da MÉDIA é: ',media(4,6))
+print(nome +' O resultado da MÉDIA é: ',media(a,b))
 
 
 
