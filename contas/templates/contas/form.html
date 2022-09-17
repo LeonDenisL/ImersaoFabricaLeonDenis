@@ -1,23 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Form Livro</title>
+    <style>
+      .cabecalho {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 2px;
+      }
+      .cabecalho-menu {
+        display: flex;
+        gap: 32px;
+      }
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+      .cabecalho-menu-item {
+        color: #fff2e7;
+        font-weight: 400;
+        font-size: 18px;
+      }
 
-    <button type="submit">Salvar</button>
-    {% if transacao %}
+      .titulo {
+        font-weight: 400;
+        font-size: 26px;
+        color: #fff2e7;
+        text-align: center;
+      }
+
+      .subtitulo {
+        font-weight: 400;
+        font-size: 20px;
+        color: #ecd6c4;
+        text-align: center;
+      }
+
+      input[type="submit"] {
+        background-color: #ecd6c4;
+        border: none;
+        border-radius: 20px;
+        font-family: "Sarala", sans-serif;
+        font-weight: 400;
+        font-size: 24px;
+        color: #2f2325;
+      }
+      button[type="submit"] {
+        background-color: #ecd6c4;
+        border: none;
+        border-radius: 20px;
+        font-weight: 400;
+        font-size: 24px;
+        color: #2f2325;
+      }
+      form {
+        border: none;
+        font-weight: 400;
+        font-size: 20px;
+        color: #f1f1f1;
+        text-align: center;
+      }
+      body {
+        font-size: 100%;
+        background: linear-gradient(68.15deg, #2f2325 16.62%, #8e5d52 85.61%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="cabecalho">
+      <nav class="cabecalho-menu">
+        <a
+          class="cabecalho-menu-item"
+          href="https://www.linkedin.com/in/leondenislucena/"
+          >Feito por Leon Denis S. Lucena</a
+        >
+        <a class="cabecalho-menu-item" href="https://github.com/LeonDenisL"
+          >Github</a
+        >
+        <a
+          class="cabecalho-menu-item"
+          href="https://www.instagram.com/leon_denis3/"
+          >Instagram</a
+        >
+        <a
+          class="cabecalho-menu-item"
+          href="https://www.linkedin.com/in/leondenislucena/"
+          >LinkedIn</a
+        >
+      </nav>
+    </header>
+    <h3 class="titulo">Cadastro de livro:</h3>
+
+    <form method="POST">
+      {% csrf_token %} {{ form.as_p }}
+
+      <button type="submit">Salvar</button>
+      {% if transacao %}
+
+      <button type="submit">
         <a href="{% url 'url_delete' transacao.id %}">Remover</a>
-    {% endif %}
-</form>
+      </button>
 
-</body>
+      {% endif %}
+    </form>
+    <br />
+    <form action="{% url 'url_listagem' %}">
+      <input type="submit" value="Voltar a home" />
+    </form>
+  </body>
 </html>

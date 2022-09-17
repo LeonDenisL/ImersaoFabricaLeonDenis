@@ -8,14 +8,17 @@ class Categoria(models.Model):
         return self.nome
 
 class Transacao(models.Model):
-    data = models.DateTimeField()
-    descricao = models.CharField(max_length=200)
-    valor = models.DecimalField(max_digits=7, decimal_places=2)
+    livro = models.CharField(max_length=200)
+    pag = models.DecimalField(max_digits=6, decimal_places=0)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     observacoes = models.TextField(null=True, blank=True)
+    autor = models.CharField(max_length=100)
+    editora = models.CharField(max_length=80)
+    ano = models.DecimalField(max_digits=4, decimal_places=0)
+    
 
     class Meta:
-        verbose_name_plural = 'Transações'
+        verbose_name_plural = 'Cadastro_Livros'
 
     def __str__(self):
-        return self.descricao
+        return self.livro
